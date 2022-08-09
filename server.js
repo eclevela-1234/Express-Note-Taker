@@ -3,6 +3,9 @@ const path = require("path")
 const express = require('express');
 const app = express();
 const data = require('./db/db.json');
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get('/api/notes', (req, res) => {
     res.json(data);
@@ -15,7 +18,14 @@ app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "public/notes.html"))
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.post("/api/notes", (req, res) => {
+    console.log(req.body);
+    data.push(req.body);
+    console.log(data);
+
+})
+
+
 
 app.listen(3001, () => {
     console.log(`API server now on port 3001!`);

@@ -12,6 +12,7 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
+saveNoteBtn.addEventListener("click", () => console.log("I was clicked"));
 // Show an element
 const show = (elem) => {
   elem.style.display = 'inline';
@@ -37,10 +38,14 @@ const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  });
+  }).then(response => {
+    if (response.ok) {
+      return response.json();
+      }});
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
