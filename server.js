@@ -21,13 +21,27 @@ app.get("/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
     data.push(req.body);
     for (i=0; i<data.length; i++) {
-        data[i].id = i;
+        data[i].id = i+1;
     }
     fs.writeFileSync(
         path.join(__dirname, '/db/db.json'),
         JSON.stringify(data, null, 2)
       );
     res.json(data);
+
+});
+
+app.delete("/api/notes/:id", (req, res) =>{
+    let index = req.params.id - 1;
+    newArr = data.splice(index, 1);
+    for (i=0; i<newArr.length; i++) {
+        newArr[i].id = i+1;
+    }
+    fs.writeFileSync(
+        path.join(__dirname, '/db/db.json'),
+        JSON.stringify(newArr, null, 2)
+      );
+    res.json(newArr);
 
 })
 
