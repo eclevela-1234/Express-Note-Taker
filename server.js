@@ -19,9 +19,8 @@ app.get("/notes", (req, res) => {
 });
 
 app.post("/api/notes", (req, res) => {
-    console.log(req.body);
     data.push(req.body);
-    console.log(data);
+    res.json(data);
 
 })
 

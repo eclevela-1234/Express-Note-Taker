@@ -38,14 +38,10 @@ const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(note),
-  }).then(response => {
-    if (response.ok) {
-      return response.json();
-      }});
+    body: JSON.stringify(note)
+  });
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
