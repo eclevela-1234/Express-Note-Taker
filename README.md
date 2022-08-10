@@ -4,9 +4,6 @@
 
 **This project showcases basic node.js server functionality using the express.js library and deployment using heroku. The user is directed to a landing page where they can then select the [Get Started] button to visit the application. The application allows the user to enter, retrieve and delete notes using api routes. Nothing fancy here, just good working code. A bigger app would warrant code modularization and router functionality. Getting the routes to work and thinking through the save and delete functions was rewarding once I figured it out.**
 
-![landing page](./public/assets/images/Landing.png)
-![app screenshote](./public/assets/images/appImg.png)
-
 ## Table of Contents
 
 
@@ -22,6 +19,8 @@
 
 [License](#license)
 
+![landing page](./public/assets/images/Landing.png)
+![app screenshote](./public/assets/images/appImg.png)
 
 ## Link to Deployed Site
 
