@@ -20,6 +20,13 @@ app.get("/notes", (req, res) => {
 
 app.post("/api/notes", (req, res) => {
     data.push(req.body);
+    for (i=0; i<data.length; i++) {
+        data[i].id = i;
+    }
+    fs.writeFileSync(
+        path.join(__dirname, '/db/db.json'),
+        JSON.stringify(data, null, 2)
+      );
     res.json(data);
 
 })
